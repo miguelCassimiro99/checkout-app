@@ -8,16 +8,18 @@ import {
   CheckoutItem,
   CheckoutProduct,
 } from './checkouts/entities/checkout.entity';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
-      port: 3306,
+      port: parseInt(process.env.DB_PORT),
+      database: process.env.DB_NAME,
       username: 'root',
-      password: 'root',
-      database: 'microservice-db',
+      password: process.env.DB_PASSWORD,
       entities: [Checkout, CheckoutItem, CheckoutProduct],
       synchronize: true,
       logging: true,
