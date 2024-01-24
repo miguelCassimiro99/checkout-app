@@ -1,40 +1,52 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Checkout Nestjs API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project contains a simple base project using Nest.js and the resource to handle an e-commerce checkout. For this project are used a MySQL DB so in the docker-compose file you'll see that it handle the containers and it needs to create a .env file with the vars used.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+How does it works 🔍
 
-## Description
+- You can see on checkout.controller.ts all base routes, and the mainly resource used in this project is the validation on classes and DTOs
+- You can see that on the checkout.entity using the typeORM and the create-checkout.dto.ts
+- The DTO uses the class-validator and the class-transformer (libs used to handle the body received before it arrives on the module controller, handle the body received).
+
+### Tools 🛠️
+
+🌐 [Nest.js](https://nestjs.com/)
+
+🌐 [@nestjs/class-validator](https://www.npmjs.com/package/@nestjs/class-validator/v/0.13.1)
+
+🌐 [class-transformer](https://www.npmjs.com/package/class-transformer)
+
+🌐 [typeorm](https://docs.nestjs.com/recipes/sql-typeorm)
+
+
+---
+
+## Setup 🏗️
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+<aside>
+💡 This project uses Docker and Docker-compose to setup the DB and the application. The databse used is MySQL
+</aside>
+
+## Create and run the environment
 
 ```bash
+docker-compose up
+```
+
+
+## On the app
+
+### Installation
+
+```
 $ npm install
 ```
 
-## Running the app
+### Running the app
 
-```bash
+```
 # development
 $ npm run start
 
@@ -43,11 +55,12 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
 ```
 
-## Test
+### Test
 
-```bash
+```
 # unit tests
 $ npm run test
 
@@ -56,18 +69,5 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
