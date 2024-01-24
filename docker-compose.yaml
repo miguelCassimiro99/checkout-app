@@ -7,3 +7,15 @@ services:
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+
+  microservices-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: checkout-nest-app
+    ports:
+      - '3001:3001'
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
