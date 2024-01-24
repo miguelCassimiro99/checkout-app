@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCheckoutDto } from './dto/create-checkout.dto';
-import { UpdateCheckoutDto } from './dto/update-checkout.dto';
 import { Checkout } from './entities/checkout.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -97,10 +96,6 @@ export class CheckoutsService {
     return this.checkoutRepo.findOneByOrFail({
       id,
     });
-  }
-
-  update(id: number, updateCheckoutDto: UpdateCheckoutDto) {
-    return `This action updates a #${id} checkout`;
   }
 
   remove(id: number) {

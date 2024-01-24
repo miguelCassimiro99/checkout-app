@@ -1,15 +1,6 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { CheckoutsService } from './checkouts.service';
 import { CreateCheckoutDto } from './dto/create-checkout.dto';
-import { UpdateCheckoutDto } from './dto/update-checkout.dto';
 
 @Controller('checkouts')
 export class CheckoutsController {
@@ -28,14 +19,6 @@ export class CheckoutsController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.checkoutsService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateCheckoutDto: UpdateCheckoutDto,
-  ) {
-    return this.checkoutsService.update(+id, updateCheckoutDto);
   }
 
   @Delete(':id')
